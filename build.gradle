@@ -26,7 +26,7 @@ javadoc.options.encoding = 'UTF-8'
 javadoc.failOnError = false
 
 dependencies {
-    implementation 'com.github.zeroleak:throwing-supplier:0.0.3-SNAPSHOT'
+    implementation 'com.github.zeroleak:throwing-supplier:0.0.4'
     implementation 'com.google.guava:guava:18.0'
     implementation 'net.sourceforge.streamsupport:streamsupport:1.7.0'
     testImplementation 'org.junit.platform:junit-platform-launcher:1.2.0'
