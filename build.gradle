@@ -1,0 +1,50 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.novoda:bintray-release:0.9.2'
+    }
+}
+
+plugins {
+    id 'pl.allegro.tech.build.axion-release' version '1.11.0'
+}
+
+apply plugin: 'java-library'
+apply plugin: 'com.novoda.bintray-release'
+
+group = 'com.github.zeroleak'
+version = scmVersion.version
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+javadoc.options.encoding = 'UTF-8'
+javadoc.failOnError = false
+
+dependencies {
+    implementation 'com.github.zeroleak:throwing-supplier:0.0.3-SNAPSHOT'
+    implementation 'com.google.guava:guava:18.0'
+    implementation 'net.sourceforge.streamsupport:streamsupport:1.7.0'
+    testImplementation 'org.junit.platform:junit-platform-launcher:1.2.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.2.0'
+}
+repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+}
+
+publish {
+    userOrg = 'zeroleak'
+    groupId = group
+    artifactId = project.name
+    publishVersion = version
+    desc = 'Testing gradle build.'
+    website = 'https://github.com/zeroleak/testGradle'
+
+    sign = true
+}
